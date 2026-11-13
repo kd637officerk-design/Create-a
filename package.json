@@ -16,40 +16,24 @@
   "build": {
     "appId": "com.primeone.desktop",
     "productName": "Prime One",
-    "directories": {
-      "output": "dist"
-    },
-    "files": [
-      "main.js",
-      "preload.js",
-      "assets/**/*",
-      "package.json"
-    ],
+    "directories": { "output": "dist" },
+    "files": ["main.js", "preload.js", "assets/**/*", "package.json"],
     "win": {
       "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "x64"
-          ]
-        },
-        {
-          "target": "portable",
-          "arch": [
-            "x64"
-          ]
-        }
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
       ],
       "icon": "assets/app-icon.ico"
     },
     "nsis": {
+      "artifactName": "Prime-One-Setup-${version}.${ext}",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
-      "createStartMenuShortcut": true,
-      "perMachine": false
+      "createStartMenuShortcut": true
     },
-    "artifactName": "Prime-One-${version}-${target}.${ext}"
-  },
-  "homepage": "https://github.com/"
+    "portable": {
+      "artifactName": "Prime-One-Portable-${version}.${ext}"
+    }
+  }
 }
